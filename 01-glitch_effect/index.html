@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        font-family: "Bebas Neue", cursive;
+        background: #f8ef02;
+        box-sizing: border-box;
+      }
+
+      main {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding-bottom: 5%;
+      }
+
+      .celebrate {
+        width: 500px;
+        height: 250px;
+        background: none;
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        cursor: pointer;
+      }
+
+      button,
+      button::after {
+        width: 380px;
+        height: 86px;
+        font-size: 28px;
+        font-family: "Bebas Neue", cursive;
+        background: linear-gradient(45deg, transparent 5%, #ff013c 5%);
+        box-shadow: 6px 0px 0px #00e6f6;
+        border: 0;
+        color: #fff;
+        letter-spacing: 3px;
+        line-height: 88px;
+        outline: transparent;
+        position: relative;
+        cursor: pointer;
+      }
+
+      button::after {
+        --slice-0: inset(50% 50% 50% 50%);
+        --slice-1: inset(80% -6px 0 0);
+        --slice-2: inset(50% -6px 30% 0);
+        --slice-3: inset(10% -6px 85% 0);
+        --slice-4: inset(40% -6px 43% 0);
+        --slice-5: inset(80% -6px 5% 0);
+        content: "AVAILABLE NOW";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          45deg,
+          transparent 3%,
+          #00e6f6 3%,
+          #00e6f6 5%,
+          #ff013c 5%
+        );
+        text-shadow: -3px -3px 0px #f8f005, 3px 3px 0px #00e6f6;
+        clip-path: var(--slice-0);
+      }
+
+      .text {
+        font-weight: 800;
+        color: #3f1354;
+        position: relative;
+        z-index: 15;
+        font-size: 80px;
+        /* text-align: center; */
+      }
+
+      .text::before {
+        content: attr(data-text);
+        position: relative;
+        display: block;
+        top: 50%;
+        left: 0;
+        text-shadow: 1px 1px hsl(180, 100%, 50%),
+          -1px -2px hsl(50deg, 100%, 60%);
+        opacity: 0;
+      }
+
+      button:hover::after {
+        animation: 2s glitch infinite;
+        animation-timing-function: steps(1, end);
+      }
+
+      .text::before {
+        animation: glitch-effect 2s infinite;
+        opacity: 1;
+      }
+
+      @keyframes glitch {
+        0% {
+          clip-path: var(--slice-1);
+          transform: translate(-20px, -10px);
+        }
+        10% {
+          clip-path: var(--slice-3);
+          transform: translate(10px, 10px);
+        }
+        20% {
+          clip-path: var(--slice-1);
+          transform: translate(-10px, 10px);
+        }
+        30% {
+          clip-path: var(--slice-3);
+          transform: translate(0px, 5px);
+        }
+        40% {
+          clip-path: var(--slice-2);
+          transform: translate(-5px, 0px);
+        }
+        50% {
+          clip-path: var(--slice-3);
+          transform: translate(5px, 0px);
+        }
+        60% {
+          clip-path: var(--slice-4);
+          transform: translate(5px, 10px);
+        }
+        70% {
+          clip-path: var(--slice-2);
+          transform: translate(-10px, 10px);
+        }
+        80% {
+          clip-path: var(--slice-5);
+          transform: translate(20px, -10px);
+        }
+        90% {
+          clip-path: var(--slice-1);
+          transform: translate(-10px, 0px);
+        }
+        100% {
+          clip-path: var(--slice-1);
+          transform: translate(0);
+        }
+      }
+
+      @keyframes glitch-effect {
+        0% {
+          clip-path: polygon(0 0, 100% 0, 100% 2%, 0 2%);
+        }
+        5% {
+          clip-path: polygon(0 8%, 100% 8%, 100% 16%, 0 16%);
+        }
+        10% {
+          clip-path: polygon(0 80%, 100% 80%, 100% 88%, 0 88%);
+          transform: translate(-5px, 0);
+        }
+        15% {
+          clip-path: polygon(0 80%, 100% 80%, 100% 88%, 0 88%);
+          transform: translate(5px.0);
+        }
+        16% {
+          clip-path: polygon(0 80%, 100% 80%, 100% 88%, 0 88%);
+          transform: translate(5px.0);
+        }
+        17% {
+          clip-path: polygon(0 90%, 100% 90%, 100% 100%, 0 100%);
+          transform: translate(-5px.0);
+        }
+        18% {
+          clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+        }
+        20% {
+          clip-path: polygon(0 30%, 100% 30%, 100% 65%, 0 65%);
+        }
+        25% {
+          clip-path: polygon(0 30%, 100% 30%, 100% 65%, 0 65%);
+          transform: translate(-5px, 0);
+        }
+        28% {
+          clip-path: polygon(0 30%, 100% 30%, 100% 65%, 0 65%);
+          transform: translate(-5px, 0);
+        }
+        29% {
+          clip-path: polygon(0 30%, 100% 30%, 100% 65%, 0 65%);
+          transform: translate(5px.0);
+        }
+        30% {
+          clip-path: polygon(0 75%, 100% 75%, 100% 100%, 0 100%);
+          transform: translate(-5px.0);
+        }
+
+        40% {
+          clip-path: polygon(0 45%, 100% 45%, 100% 60%, 0 60%);
+          transform: translate(5px.0);
+        }
+        42% {
+          clip-path: polygon(0 45%, 100% 45%, 100% 60%, 0 60%);
+          transform: translate(-5px, 0);
+        }
+        45% {
+          clip-path: polygon(0 45%, 100% 45%, 100% 60%, 0 60%);
+          transform: translate(5px.0);
+        }
+        48% {
+          clip-path: polygon(0 45%, 100% 45%, 100% 60%, 0 60%);
+          transform: translate(-5px, 0);
+        }
+        50% {
+          clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+        }
+        60% {
+          clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+        }
+        /* 70% {
+          clip-path: polygon(0 75%, 100% 75%, 100% 100%, 0 65%);
+          transform: translate(5px.0);
+        }
+        80% {
+          clip-path: polygon(0 45%, 100% 45%, 100% 60%, 0 60%);
+          transform: translate(-5px, 0);
+        }
+        90% {
+          clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+        } */
+        100% {
+          clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+          transform: translate(0, 0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="celebrate">
+        <div id="div2020" class="text" data-text="END OF 2020">END OF 2020</div>
+        <div
+          id="div2021"
+          class="text"
+          data-text="2021 COMEING SOON"
+          style="display: none"
+        >
+          2021 COMING SOON
+        </div>
+        <div
+          id="new"
+          class="text"
+          data-text="HAPPY NEW YEAR"
+          style="display: none"
+        >
+          HAPPY NEW YEAR
+        </div>
+      </div>
+      <button id="btn" data-text="LET'S GO">LET'S GO</button>
+    </main>
+  </body>
+  <script>
+    var zero = document.querySelector("#div2020");
+    var one = document.querySelector("#div2021");
+    var news = document.querySelector("#new");
+    var btn = document.querySelector("#btn");
+
+    btn.addEventListener("mouseover", function () {
+      zero.style.display = "none";
+      one.style.display = "block";
+      news.style.display = "none";
+    });
+
+    btn.addEventListener("mouseleave", function () {
+      zero.style.display = "block";
+      one.style.display = "none";
+      news.style.display = "none";
+    });
+
+    btn.addEventListener("click", function () {
+      zero.style.display = "none";
+      one.style.display = "none";
+      news.style.display = "block";
+    });
+  </script>
+</html>
